@@ -1,3 +1,4 @@
+![alt text](https://reactjsexample.com/content/images/2021/07/Facebook-Clone-with-ReactJS.jpg)
 # Facebook Clone Project
 
 This project is a Facebook clone built using ReactJS, Firebase, Mui.
