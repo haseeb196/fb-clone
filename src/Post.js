@@ -1,11 +1,18 @@
 
-import { AccountCircle, ChatBubbleOutline, ExpandMoreOutlined, NearMe, ThumbUp } from '@mui/icons-material';
-import { Avatar, CircularProgress } from '@mui/material';
+import { AccountCircle, ChatBubbleOutline, Delete, ExpandMoreOutlined, NearMe, ThumbUp } from '@mui/icons-material';
+import { Avatar, CircularProgress, IconButton } from '@mui/material';
+import db from './firebase';
 import React from 'react';
 import './Post.css';
-function Post({profilePic, image, username, timestamp, message}) {
+function Post({id ,profilePic, image, username, timestamp, message}) {
+  const deletepost = () => {
+    db.collection('posts').doc(id).delete();
+  
+   }
+
   return (
     <div className='post'>
+    <div className='main-top'>
       <div className="post__top">
         <Avatar src={profilePic} className='post__avatar'/>
         <div className="post__topInfo">
@@ -17,6 +24,8 @@ function Post({profilePic, image, username, timestamp, message}) {
           )}
           
         </div>
+      </div>
+      <div onClick={deletepost} className='delete'><IconButton><Delete /></IconButton></div>
       </div>
       <div className="post__bottom">
         <p>{message}</p>
